@@ -104,22 +104,22 @@ function subtract(a) {
 
 }
 function equal(){
-    // Sprawdzenie jaki operator został wybrany jako ostatni i czy została podana liczba wtedy wykonaj działanie ostatniego operatora
-    // Jeżeli nie podano liczby a kliknieto operator to wyświetl wartość z cache
+    // Sprawdź, jaki operator został wybrany jako ostatni i czy została podana liczba, wtedy wykonaj działanie ostatniego operatora.
+    // Jeśli nie podano liczby, a kliknięto operator, wyświetl wartość z pamięci podręcznej (cache).
 }
 
-// metoda/funkcja mnożenia
+// Metoda/funkcja mnożenia
 
-// metoda/funkcja dzielenia
+// Metoda/funkcja dzielenia
 
-// metoda/funkcja liczb zmiennoprzecinkowych dodawany jest przecinek a wartości float muszą zawierać kropkę np. 1.2 zamiast 1,2
+// Metoda/funkcja dodawania liczb zmiennoprzecinkowych: dodawany jest przecinek, a wartości float muszą zawierać kropkę (np. 1.2 zamiast 1,2).
 
-//Te zmienne nie są wykorzystywane. Jedynie dodaje się do nich przyciski z kalkulatora i potem nie są wykorzystywane
-// pasowałoby je usunąć z kodu
+// Te zmienne nie są wykorzystywane. Dodaje się do nich przyciski z kalkulatora, ale potem nie są używane.
+// Pasowałoby je usunąć z kodu.
 // let buttonNum = [];
 // let buttonOperator = [];
 // let buttonFunction = [];
 
-// Gdy wszystko bedzie działać dopisz komentarze wyjaśniające działanie kodu oraz udokumentuj go w plikach Markdown dokumentacji:
+// Gdy wszystko będzie działać, dopisz komentarze wyjaśniające działanie kodu oraz udokumentuj go w plikach Markdown dokumentacji:
 // https://github.com/Code-V-Craft/Documentation
 // Ten kod powinien być w Moduł 0: Kalkulator
