@@ -7,6 +7,7 @@ let buttonOperator = [];
 let buttonFunction = [];
 let cache = [];
 let cacheValue =  "";
+let cacheOperator = '';
 buttons.forEach((button) => {
     if(button.classList.contains('operator')) {
         buttonOperator.push(button);
@@ -14,6 +15,7 @@ buttons.forEach((button) => {
         switch(operator) {
             case '+':
                 button.addEventListener('click', (e) => {
+                    cacheOperator = '+'
                     if (cacheValue !== "") {
                         add(parseFloat(cacheValue));
                     }
@@ -21,6 +23,7 @@ buttons.forEach((button) => {
                 break;
             case '-':
                 button.addEventListener('click', (e) => {
+                    cacheOperator = '-'
                     if (cacheValue !== "") {
                         subtract(parseFloat(cacheValue));
                     }
@@ -28,16 +31,23 @@ buttons.forEach((button) => {
                 break;
             case '*':
                 button.addEventListener('click', (e) => {
-                    // mnożenie
+                    cacheOperator = '*'
+                    if (cacheValue !== "") {
+                        mltp(parseFloat(cacheValue));
+                    }
                 });
                 break;
             case '/':
                 button.addEventListener('click', (e) => {
-                    // dzielenie
+                    cacheOperator = '/'
+                    if (cacheValue !== "") {
+                        sharing(parseFloat(cacheValue));
+                    }
                 });
                 break;
         }
     }else if(button.classList.contains('decimal')) {
+
         
     }else if(button.classList.contains('all-clear')) {
         buttonFunction.push(button);
@@ -72,13 +82,16 @@ function clearDisplay() {
     display.innerText = "";
     cacheValue = "";
 }
-let test = true;
 function add(a) {
+    console.log(a)
+    if(a==""){
+        a = cacheValue;
+    }
     cache.push(a);
-    console.log(cache);
+    console.log("cacheNum",cache);
     if(cache.length >= 2) {
         clearDisplay();
-        let sum = cache[0] + cache[1];
+        let sum = parseFloat(cache[0]) + parseFloat(cache[1]);
         cache = [];
         cache.push(sum);
         setDisplayValue(cache);
@@ -89,7 +102,7 @@ function add(a) {
 }
 function subtract(a) {
     cache.push(a);
-    console.log(cache);
+    console.log("cacheNum",cache);
     if(cache.length >= 2) {
         clearDisplay();
         let sum = cache[0] - cache[1];
@@ -97,20 +110,66 @@ function subtract(a) {
         cache.push(sum);
         setDisplayValue(cache);
     }
-    else {
-        clearDisplay();
-    }
+    // else {
+    //     clearDisplay();
+    // }
 
 
 }
 function equal(){
+    switch(cacheOperator){
+        case '+':
+            add("")
+            break;
+        case "-":
+            console.log("dupa");
+            break;
+    }
+    cache[0]
+
+    // if (cacheOperator !== "") {
+    //     cache.push(parseFloat(cacheValue));
+    // }
+
+    // if (cache.length > 0) {
+    //     setDisplayValue()
+    //     cache = [0];
+    // }
+
     // Sprawdź, jaki operator został wybrany jako ostatni i czy została podana liczba, wtedy wykonaj działanie ostatniego operatora.
     // Jeśli nie podano liczby, a kliknięto operator, wyświetl wartość z pamięci podręcznej (cache).
 }
 
 // Metoda/funkcja mnożenia
-
+function mltp(a){
+    cache.push(a);
+    console.log("cacheNum",cache);
+    if(cache.length >= 2) {
+        clearDisplay();
+    let sum = cache[0] * cache[1];
+    cache = [];
+        cache.push(sum);
+        setDisplayValue(cache);
+    }
+    else {
+        clearDisplay();
+    }
+ }
 // Metoda/funkcja dzielenia
+function sharing(a){
+    cache.push(a);
+    console.log("cacheNum",cache);
+    if(cache.length >= 2) {
+        clearDisplay();
+    let sum = cache[0] / cache[1];
+    cache = [];
+        cache.push(sum);
+        setDisplayValue(cache);
+    }
+    else {
+        clearDisplay();
+    }
+ }
 
 // Metoda/funkcja dodawania liczb zmiennoprzecinkowych: dodawany jest przecinek, a wartości float muszą zawierać kropkę (np. 1.2 zamiast 1,2).
 
